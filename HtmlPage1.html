@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>My Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<body>
+    <header>
+
+        <div class="logo">
+            <a href="">PANICS</a>
+        </div>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn"><i class="fa fa-bars"></i></label>
+        <div class="navigation">
+            <a href="">Home</a>
+            <a href="" id="product-link">Product<span>&#9662</span></a>
+            
+            <div id="product-list" class="hidden">
+                <ul>
+                  <li>Product 1</li>
+                  <li>Product 2</li>
+                  <li>Product 3</li>
+                </ul>
+            </div>
+            <a href="">About us</a>
+            
+        </div>
+        <?php include('path/to/your/file.html'); ?>
+        <div class="wrapper">
+            <ul>
+              <li  data-tooltip="Sign in"><a href="" id="login-btn"><i class="fa fa-user-circle" aria-hidden="true"></i></a></li>
+              <li data-tooltip="Sign up"><a href="" id="signup-btn"><i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+              <li  data-tooltip="Cart">
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                    </svg>
+                </a>
+            </li>
+            </ul>
+        </div>
+        <div id="login-box" class="hidden">
+            <h2>Login Here</h2>
+            <form>
+                <p>Username</p>
+                <input type="text" name="username" placeholder="Enter Username">
+                <p>Password</p>
+                <input type="password" name="password" placeholder="Enter Password">
+                <input type="submit" name="submit" value="Login">
+                <a href="#">Forgot Password</a>
+            </form>
+        </div>
+        <div id="signup-form" class="hidden">
+            <h2>Sign up</h2>
+            <form>
+                <label for="full-name">Full name:</label>
+                <input type="text" id="full-name" name="full-name" placeholder="Enter your full name">
+              
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address">
+              
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+              
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+              
+                <input type="submit" value="Submit">
+              </form>
+          </div>         
+          <div id="background-overlay" class="hidden"></div>
+          <script>
+            var productLink = document.getElementById("product-link");
+                var productList = document.getElementById("product-list");
+        
+                // Thêm sự kiện nhấn vào liên kết "Products"
+                productLink.addEventListener("click", function (event) {
+                    event.preventDefault(); // Ngăn chặn trình duyệt chuyển hướng đến URL trong href
+        
+                    // Nếu danh sách sản phẩm đã được hiển thị, ẩn nó đi
+                    if (productList.classList.contains("hidden")) {
+                        productList.classList.remove("hidden");
+                    } else {
+                        productList.classList.add("hidden");
+                    }
+                });
+                productLink.addEventListener("blur", function (event) {
+                    productList.classList.add("hidden");
+                });
+                //dropdown menu
+                document.getElementById("product-link").addEventListener("click", function () {
+                    document.getElementById("product-list").classList.toggle("hidden");
+                });
+                var productList = document.getElementById("product-list");
+                var productLink = document.getElementById("product-link");
+        
+                productLink.addEventListener("click", function () {
+                    if (productList.classList.contains("hidden")) {
+                        productList.classList.remove("hidden");
+                        productLink.innerHTML = "Product<span>&#9652;</span>";
+                    } else {
+                        productList.classList.add("hidden");
+                        productLink.innerHTML = "Product<span>&#9662;</span>";
+                    }
+                });
+                //form đăng nhập
+                    const loginButton = document.getElementById('login-btn');
+                    const loginForm = document.getElementById('login-box');
+                    const backgroundOverlay = document.getElementById('background-overlay');
+
+                    loginButton.addEventListener('click', () => {
+                        event.preventDefault();
+                        loginForm.classList.remove('hidden');
+                        backgroundOverlay.classList.remove('hidden');
+                    });
+
+                    backgroundOverlay.addEventListener('click', () => {
+                        loginForm.classList.add('hidden');
+                        backgroundOverlay.classList.add('hidden');
+                    });
+                //form đăng ký
+                const signupButton = document.getElementById('signup-btn');
+                    const signupForm = document.getElementById('signup-form');
+
+                    signupButton.addEventListener('click', () => {
+                        event.preventDefault();
+                        signupForm.classList.remove('hidden');
+                        backgroundOverlay.classList.remove('hidden');
+                    });
+
+                    backgroundOverlay.addEventListener('click', () => {
+                        signupForm.classList.add('hidden');
+                        backgroundOverlay.classList.add('hidden');
+                    });
+                </script>
+    </header>
+    <div class="banner">
+            <img src="./Images/banner1.png" alt="banner 1">
+            <img src="./Images/banner3.png" alt="banner 2">
+            <img src="./Images/banner2.png" alt="banner 3">
+    </div>
+    <h2>Featured Products</h2>
+    <div class="products">
+        <ul>
+            <li><img src="Images/pro1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$19.99</p>
+                <a href="#" class="btn btn-secondary">Add to Cart</a>
+                <a href="#" class="btn btn-primary btn-details">View Details</a></li>
+            <li><img src="Images/pro2.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$19.99</p>
+                <a href="#" class="btn btn-secondary">Add to Cart</a>
+                <a href="#" class="btn btn-primary btn-details">View Details</a></li>
+            <li><img src="Images/pro3.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$19.99</p>
+                <a href="#" class="btn btn-secondary">Add to Cart</a>
+                <a href="#" class="btn btn-primary btn-details">View Details</a></li>
+                <li><img src="Images/pro1.jpg" alt="Product 1">
+                    <h3>Product 1</h3>
+                    <p>$19.99</p>
+                    <a href="#" class="btn btn-secondary">Add to Cart</a>
+                    <a href="#" class="btn btn-primary btn-details">View Details</a></li>
+                <li><img src="Images/pro2.jpg" alt="Product 1">
+                    <h3>Product 1</h3>
+                    <p>$19.99</p>
+                    <a href="#" class="btn btn-secondary">Add to Cart</a>
+                    <a href="#" class="btn btn-primary btn-details">View Details</a></li>
+                <li><img src="Images/pro3.jpg" alt="Product 1">
+                    <h3>Product 1</h3>
+                    <p>$19.99</p>
+                    <a href="#" class="btn btn-secondary">Add to Cart</a>
+                    <a href="#" class="btn btn-primary btn-details">View Details</a></li>
+            </ul>
+        </ul>
+        
+    </div>
+
+
+</body>
+<footer>
+    <p>&copy; 2023 Pantronics</p>
+  </footer>
+</html>
