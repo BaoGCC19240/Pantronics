@@ -152,7 +152,7 @@ select{
 	margin-right: 20px;
 }
 .preview-image-container img{
-	height: 300px;
+	height: 100%;
 	object-fit: cover;
 }
 @media (max-width: 850px) {
