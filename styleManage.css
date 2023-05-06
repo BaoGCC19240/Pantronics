@@ -187,8 +187,9 @@ select{
 }
 .thumb-image {
 	width: 100px; /* adjust as necessary */
-  height: 100px; /* adjust as necessary */
-  object-fit: cover; /* adjust as necessary */
+  	height: 100px; /* adjust as necessary */
+  	object-fit: cover; /* adjust as necessary */
+	margin-top: 10px;
 }
 
 .product-details h1 {
