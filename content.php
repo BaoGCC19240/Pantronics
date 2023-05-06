@@ -104,6 +104,11 @@ document.querySelectorAll('.filter-btn').forEach(button => {
             } else {
                 cart[cartIndex].quantity++;
             }
+          Swal.fire({
+          icon: "success",
+          title: "Product added to cart",
+          showConfirmButton: false,
+          timer: 2000})
             localStorage.setItem('cart', JSON.stringify(cart));
             totalCart();
             renderCart();
