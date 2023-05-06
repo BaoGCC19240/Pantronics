@@ -179,6 +179,7 @@ select{
 
 .thumb-images {
 	display: inline-block;
+	min-width:300px;
 }
 
 .thumb-images li {
