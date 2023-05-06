@@ -153,6 +153,7 @@ select{
 }
 .preview-image-container img{
 	height: 100%;
+	min-height:300px;
 	object-fit: cover;
 }
 @media (max-width: 850px) {
