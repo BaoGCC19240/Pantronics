@@ -57,14 +57,12 @@ $product_result = $conn->query($product_sql);
         <th>Total</th>
     </tr>
     <?php 
-    $total = 0;
     while ($product_row = $product_result->fetch_assoc()) {
         $pro_id = $product_row['product_id']; 
         $query="select name from product where id = $pro_id";
         $res= $conn->query($query);
         $name=$res->fetch_assoc();
         $subtotal = $product_row["quantity"] * $product_row["price"];
-        $total += $subtotal;
     ?>
         <tr>
             <td><?php echo $name['name']; ?></td>
