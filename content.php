@@ -1,4 +1,6 @@
 <script src="script.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.js"></script>
 <div class="banner">
             <img src="./Images/banner1.png" alt="banner 1">
             <img src="./Images/banner3.png" alt="banner 2">
@@ -104,6 +106,11 @@ document.querySelectorAll('.filter-btn').forEach(button => {
             } else {
                 cart[cartIndex].quantity++;
             }
+          Swal.fire({
+          icon: "success",
+          title: "Product added to cart",
+          showConfirmButton: false,
+          timer: 2000})
             localStorage.setItem('cart', JSON.stringify(cart));
             totalCart();
             renderCart();

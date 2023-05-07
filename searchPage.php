@@ -1,4 +1,6 @@
 <script src="script.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.js"></script>
 <div class="searchBar">
     <div class="search-container">
         <input type="text" placeholder="Search for . . ." name="search" onkeyup="searchProducts(this.value)">
@@ -123,6 +125,11 @@
             } else {
                 cart[cartIndex].quantity++;
             }
+            Swal.fire({
+          icon: "success",
+          title: "Product added to cart",
+          showConfirmButton: false,
+          timer: 2000})
             localStorage.setItem('cart', JSON.stringify(cart));
             totalCart();
             renderCart();

@@ -152,7 +152,8 @@ select{
 	margin-right: 20px;
 }
 .preview-image-container img{
-	height: 300px;
+	height: 100%;
+	min-height:400px;
 	object-fit: cover;
 }
 @media (max-width: 850px) {
@@ -178,6 +179,7 @@ select{
 
 .thumb-images {
 	display: inline-block;
+	min-width:300px;
 }
 
 .thumb-images li {
@@ -187,8 +189,9 @@ select{
 }
 .thumb-image {
 	width: 100px; /* adjust as necessary */
-  height: 100px; /* adjust as necessary */
-  object-fit: cover; /* adjust as necessary */
+  	height: 100px; /* adjust as necessary */
+  	object-fit: cover; /* adjust as necessary */
+	margin-top: 10px;
 }
 
 .product-details h1 {
