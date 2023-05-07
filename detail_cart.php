@@ -94,9 +94,6 @@
   </form>
 </div>
 
-
-
-
 <?php
 // Kiểm tra xem người dùng đã đăng nhập hay chưa
 if (isset($_POST["checkout-btn"])) {
@@ -262,7 +259,7 @@ if (isset($_POST["checkout-btn"])) {
       }
       echo "<meta http-equiv=\"refresh\" content=\"0;URL=$vnp_Url\"/>";
     }
-    if(isset($_GET['vnp_ResponseCode']) && $_GET['vnp_ResponseCode'] == '00') {
+    if(isset($_GET['vnp_ResponseCode']) && $_GET['vnp_ResponseCode'] == 00) {
   $query = "INSERT INTO Invoice (invoice_number, order_date, delivery_date, total, status, user_id,address,phone,transaction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
   $stmt = mysqli_prepare($conn, $query);
@@ -272,7 +269,7 @@ if (isset($_POST["checkout-btn"])) {
   if(mysqli_stmt_execute($stmt)) {
     $invoice_id = mysqli_insert_id($conn);
   } else {
-    die('Lỗi: ' . mysqli_error($conn));
+    die('Error: ' . mysqli_error($conn));
   }
 
   // Duyệt qua mảng cart và tạo chi tiết đơn hàng
