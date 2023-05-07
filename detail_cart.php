@@ -186,10 +186,7 @@ if (isset($_POST["checkout-btn"])) {
       <script>
         var cart = [];
         localStorage.setItem('cart', JSON.stringify(cart));
-      </script>
-      <?php
-      echo '<script>
-      swal({
+        swal({
           title: "Success!",
           text: "Your order has been placed successfully!",
           type: "success",
@@ -197,7 +194,8 @@ if (isset($_POST["checkout-btn"])) {
       }).then(function() {
           window.location = "index.php";
       });
-  </script>';
+      </script>
+      <?php
     }
     if (isset($_POST['payment_method']) && $_POST['payment_method'] == 'vnpay') {
       date_default_timezone_set('Asia/Ho_Chi_Minh');
