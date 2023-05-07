@@ -260,6 +260,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET')
       echo "<meta http-equiv=\"refresh\" content=\"0;URL=$vnp_Url\"/>";
     }
     if(isset($_GET['vnp_ResponseCode']) && $_GET['vnp_ResponseCode'] == 00) {
+      $payment_method='vnpay';
   $query = "INSERT INTO Invoice (invoice_number, order_date, delivery_date, total, status, user_id,address,phone,transaction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
   $stmt = mysqli_prepare($conn, $query);
