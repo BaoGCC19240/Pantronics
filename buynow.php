@@ -209,7 +209,7 @@ if (isset($_POST['placeOrder'])) {
           mysqli_stmt_bind_param($stmt, "ii", $quantity_in_stock, $id);
           mysqli_stmt_execute($stmt);
           echo '<script>
-    swal({
+    swal.fire({
         title: "Success!",
         text: "Your order has been placed successfully!",
         type: "success",
@@ -242,7 +242,7 @@ if (isset($_POST['placeOrder'])) {
     $vnp_TmnCode = "9PC9G6E6"; //Mã định danh merchant kết nối (Terminal Id)
     $vnp_HashSecret = "PEYOLBSXCEZMAAJZKFNWQVQQMCJJNWKZ"; //Secret key
     $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    $vnp_Returnurl = "http://localhost:1000/test/?page=buynow&id=".$id."&quantity=" .$quantity;
+    $vnp_Returnurl = "https://pantronics.herokuapp.com/index.php?page=buynow&id=".$id."&quantity=" .$quantity;
     $vnp_apiUrl = "http://sandbox.vnpayment.vn/merchant_webapi/merchant.html";
     $apiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";
     //Config input format
@@ -344,7 +344,7 @@ unset($_SESSION['email']);
 unset($_SESSION['address']);
 unset($_SESSION['phone']);
 echo '<script>
-swal({
+swal.fire({
     title: "Success!",
     text: "Your order has been placed successfully!",
     type: "success",
@@ -358,7 +358,7 @@ swal({
 else if(isset($_GET['vnp_ResponseCode'])&&$_GET['vnp_ResponseCode']==24){
   $conn->rollback();
   echo '<script>
-swal({
+swal.fire({
   title: "Payment failed",
   text: "Please try again later",
   icon: "error",
@@ -369,7 +369,7 @@ swal({
 }
 else{
   echo '<script>
-swal({
+swal.fire({
   title: "Payment failed",
   text: "Please try again later",
   icon: "error",
