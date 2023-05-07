@@ -186,7 +186,7 @@ if (isset($_POST["checkout-btn"])) {
       <script>
         var cart = [];
         localStorage.setItem('cart', JSON.stringify(cart));
-        swal({
+        swal.fire({
           title: "Success!",
           text: "Your order has been placed successfully!",
           type: "success",
@@ -208,7 +208,7 @@ if (isset($_POST["checkout-btn"])) {
       $vnp_TmnCode = "9PC9G6E6"; //Mã định danh merchant kết nối (Terminal Id)
       $vnp_HashSecret = "PEYOLBSXCEZMAAJZKFNWQVQQMCJJNWKZ"; //Secret key
       $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-      $vnp_Returnurl = "http://localhost:1000/test/index.php?page=checkout_details";
+      $vnp_Returnurl = "https://pantronics.herokuapp.com/index.php?page=checkout_details";
       $vnp_apiUrl = "http://sandbox.vnpayment.vn/merchant_webapi/merchant.html";
       $apiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";
       //Config input format
@@ -299,7 +299,7 @@ if (isset($_POST["checkout-btn"])) {
   </script>
   <?php
   echo '<script>
-  swal({
+  swal.fire({
       title: "Success!",
       text: "Your order has been placed successfully!",
       type: "success",
@@ -312,7 +312,7 @@ if (isset($_POST["checkout-btn"])) {
 
     if(isset($_GET['vnp_ResponseCode'])&&$_GET['vnp_ResponseCode']==24){
       echo '<script>
-swal({
+swal.fire({
   title: "Payment failed",
   text: "Please try again later",
   icon: "error",
