@@ -228,7 +228,7 @@ if (isset($_POST['placeOrder'])) {
       echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
     }
   }
-   else if ($payment_method == 'vnpay') {
+  if ($payment_method == 'vnpay') {
     
 
 
@@ -355,19 +355,8 @@ swal.fire({
 </script>';
 }
 
-else if(isset($_GET['vnp_ResponseCode'])&&$_GET['vnp_ResponseCode']==24){
+if(isset($_GET['vnp_ResponseCode'])&&$_GET['vnp_ResponseCode']==24){
   $conn->rollback();
-  echo '<script>
-swal.fire({
-  title: "Payment failed",
-  text: "Please try again later",
-  icon: "error",
-  button: "OK",
-}).then(function() {
-});
-</script>';
-}
-else{
   echo '<script>
 swal.fire({
   title: "Payment failed",
