@@ -138,7 +138,7 @@ if (isset($_POST["checkout-btn"])) {
       $invoice_number = 'INV-' . time(); // Số hóa đơn được tạo từ timestamp
       $order_date = date('Y-m-d'); // Ngày đặt hàng
       $deliver = date('Y-m-d', strtotime($order_date . ' + 5 days'));
-
+      $status='Not Confirm';
       $query_user = "SELECT address, phone FROM user WHERE id = ?";
       $stmt = mysqli_prepare($conn, $query_user);
       mysqli_stmt_bind_param($stmt, "i", $user_id);
@@ -151,7 +151,6 @@ if (isset($_POST["checkout-btn"])) {
     }
     if (isset($_POST['payment_method']) && $_POST['payment_method'] == 'cash_on_delivery') {
       // Tạo đơn hàng mới
-      $status='Not Confirm';
       $query = "INSERT INTO Invoice (invoice_number, order_date, delivery_date, total, status, user_id, address, phone, transaction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
       $stmt = mysqli_prepare($conn, $query);
       mysqli_stmt_bind_param($stmt, "sssssssss", $invoice_number, $order_date, $deliver, $total, $status, $user_id, $address, $phone, $payment_method);
@@ -259,6 +258,8 @@ if (isset($_POST["checkout-btn"])) {
       }
       echo "<meta http-equiv=\"refresh\" content=\"0;URL=$vnp_Url\"/>";
     }
+  }
+}
     if(isset($_GET['vnp_ResponseCode']) && $_GET['vnp_ResponseCode'] == 00) {
   $query = "INSERT INTO Invoice (invoice_number, order_date, delivery_date, total, status, user_id,address,phone,transaction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -320,9 +321,6 @@ swal.fire({
 </script>';
     }
     
-  }
-
-}
 
 ?>
 
