@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.js"></script>
+<script src="script.js"></script>
  <div class="container">
   <h1>Detail Cart</h1>
   <table>
@@ -96,7 +97,7 @@
 
 <?php
 // Kiểm tra xem người dùng đã đăng nhập hay chưa
-if (isset($_POST["checkout-btn"])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'GET') {
   if (!isset($_SESSION["us_id"])) {
     // Chuyển hướng đến trang đăng nhập hoặc đăng ký
     echo '<meta http-equiv="refresh" content="0;url=?page=login"/>';
@@ -258,8 +259,6 @@ if (isset($_POST["checkout-btn"])) {
       }
       echo "<meta http-equiv=\"refresh\" content=\"0;URL=$vnp_Url\"/>";
     }
-  }
-}
     if(isset($_GET['vnp_ResponseCode']) && $_GET['vnp_ResponseCode'] == 00) {
   $query = "INSERT INTO Invoice (invoice_number, order_date, delivery_date, total, status, user_id,address,phone,transaction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -320,8 +319,8 @@ swal.fire({
 });
 </script>';
     }
-    
+  }
+}
 
 ?>
 
-<script src="script.js"></script>
