@@ -38,7 +38,6 @@ $product_result = $conn->query($product_sql);
 <p>Phone: <?php echo $row["phone"]; ?></p>
 <p>Order Date: <?php echo $row["order_date"]; ?></p>
 <p>Delivery Date: <?php echo $row["delivery_date"]; ?></p>
-<p>Total: <?php echo $row["total"]; ?></p>
 <p>Payment method: <?php echo $row["transaction"]; ?></p>
 <p>Status: <?php echo $row["status"]; ?></p>
 
@@ -66,6 +65,7 @@ $product_result = $conn->query($product_sql);
         $name=$res->fetch_assoc();
         $subtotal = $product_row["quantity"] * $product_row["price"];
         $total += $subtotal;
+        $total=($total/160>3)? $total+$total/160:$total+3;
     ?>
         <tr>
             <td><?php echo $name['name']; ?></td>
