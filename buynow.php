@@ -313,6 +313,7 @@ if(isset($_GET['vnp_ResponseCode'])&&$_GET['vnp_ResponseCode']==00){
       $invoice_number = 'INV-' . time();
       $order_date = date('Y-m-d');
       $deliver = date('Y-m-d', strtotime($order_date . ' + 5 days'));
+      $status="Not Confirm";
       $query = "INSERT INTO Invoice (invoice_number, order_date,delivery_date, total, status, user_id, address, phone,transaction ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
       $stmt = $conn->prepare($query);
       $stmt->bind_param("sssssssss", $invoice_number, $order_date, $deliver, $total, $status, $user_id, $address, $phone, $payment_method);
