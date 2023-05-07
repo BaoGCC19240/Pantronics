@@ -38,7 +38,6 @@ $product_result = $conn->query($product_sql);
 <p>Phone: <?php echo $row["phone"]; ?></p>
 <p>Order Date: <?php echo $row["order_date"]; ?></p>
 <p>Delivery Date: <?php echo $row["delivery_date"]; ?></p>
-<p>Total: <?php echo $row["total"]; ?></p>
 <p>Status: <?php echo $row["status"]; ?></p>
 <p>Payment method: <?php echo $row["transaction"]; ?></p>
 
@@ -57,12 +56,15 @@ $product_result = $conn->query($product_sql);
         <th>Total</th>
     </tr>
     <?php 
+    $total = 0;
     while ($product_row = $product_result->fetch_assoc()) {
         $pro_id = $product_row['product_id']; 
         $query="select name from product where id = $pro_id";
         $res= $conn->query($query);
         $name=$res->fetch_assoc();
         $subtotal = $product_row["quantity"] * $product_row["price"];
+        $total += $subtotal;
+        $total=($total/160>3)? $total+$total/160:$total+3;
     ?>
         <tr>
             <td><?php echo $name['name']; ?></td>
