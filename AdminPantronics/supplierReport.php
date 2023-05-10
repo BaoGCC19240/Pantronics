@@ -8,7 +8,7 @@
 <body>
 	<h1>Supplier Sales Report</h1>
 	<table>
-		<tr>
+	<tr style="background-color:#add8e65e;">
 			<th>Supplier ID</th>
 			<th>Supplier Name</th>
 			<th>Total Quantity Sold</th>
@@ -37,7 +37,14 @@
 			}
 		?>
 	</table>
-    <div id="chart_div"></div>
+	<style>
+		#chart_div{
+			width: 800px;
+			height: 400px;
+			background-color: #add8e65e;
+		}
+		</style>
+    <div id="chart_div" style="width:90%;"></div>
     <script>
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
@@ -65,8 +72,8 @@ function drawChart() {
 
   var options = {
     title: 'Product Quantity by Supplier',
-    width: 600,
-    height: 400
+    width: 800,
+    height: 400,
   };
 
   var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
