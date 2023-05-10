@@ -1,7 +1,5 @@
 * {
 	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
 }
 
 .hidden{
@@ -56,7 +54,7 @@ table, th, td {
 }
 th, td {
   padding: 5px;
-  text-align: center;  
+  text-align: left;  
 
 }
 th{
@@ -141,9 +139,8 @@ select{
 .product-container {
 	display: flex;
 	flex-wrap: nowrap;
-	width: 80%;
+	width: 60%;
 	margin: 20px auto;
-	border-radius: 20px;
 	background-color: white;
 	border: 1px none #ccc;
 	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
@@ -240,7 +237,7 @@ input[type=number] {
   
   /* Thiết kế cho nút "Mua ngay" */
   button:nth-child(2) {
-	background-color: #28a745; /* Màu nền của nút */
+	background-color: #2196F3; /* Màu nền của nút */
   }
   
   /* Hiệu ứng hover cho nút */
@@ -253,101 +250,4 @@ input[type=number] {
   }
   .lst-order a{
 	margin-left:unset;
-  }
-  .export{
-	position: absolute;
-    top: 20px;
-    right: 20px;
-  }
-  .top_product{
-  position: relative;
-  width: 45%;
-  height: auto;
-  margin-left: 55%;
-  background-color: #add8e65e;
-  margin-top: 15px;
-  padding-bottom: 20px;
-}
-      .top_cate
-    {
-        position: relative;
-        width: 45%;
-        height: auto;
-        margin-left: 55%;
-        background-color: #add8e65e;
-        padding-bottom: 20px;
-    }
-  #chart_month{
-    position: absolute;
-    background-color: #add8e65e !important;
-    width: 52%;
-    height: 400px;
-  }
-  .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around; 
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-  }
-  
-  .card {
-  display: flex;
-  border: none;
-  height: 80px;
-  transition: box-shadow 0.3s ease-in-out;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  padding:5px 20px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  justify-content: center;
-  background-color: #add8e65e;
-  }
-   .card-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-  .card:hover {
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card i {
-  font-size: 3rem;
-  text-align: center;
-  margin: 12px;
-  margin-bottom: 0;
-  }
-  
-  .card-title {
-  text-align: center;
-  font-weight: bold;
-  }
-  
-  .card-text {
-  text-align: center;
-  font-size: 1.5rem;
-  color: #007bff;
-  padding-top: 10px;
-  }
-  
-  .col-md-3{
-    flex-basis: 20%;
-  }
-  @media only screen and (max-width: 768px) {  /* responsive cho tablet */
-  .container {
-  flex-wrap: wrap;
-  }
-  
-  .col-md-3 {
-  flex-basis: 50%;
-  }
-  }
-  
-  @media only screen and (max-width: 576px) { /* responsive cho mobile */
-  .col-md-3 {
-  flex-basis: 100%;
-  }
   }
