@@ -20,15 +20,13 @@ if (!isset($_SESSION["us_admin"])) {
 	<div class="mn-wrapper">
 		<nav>
 			<ul>
-				<li><a href="?page=manage&&mpage=manageUser" class="active">User</a></li>
+				<li><a href="?page=manage&&mpage=rev_statistics">Order statistics</a></li>
+				<li><a href="?page=manage&&mpage=supplierReport">Supplier Report</a></li>
+				<li><a href="?page=manage&&mpage=manageUser">User</a></li>
 				<li><a href="?page=manage&&mpage=manageSupplier">Supplier</a></li>
 				<li><a href="?page=manage&&mpage=manageCategory">Category</a></li>
 				<li><a href="?page=manage&&mpage=manageProduct">Product</a></li>
 				<li><a href="?page=manage&&mpage=manageOrder">Order</a></li>
-				<li><a href="?page=manage&&mpage=top_10product">Top 10 best selling products</a></li>
-				<li><a href="?page=manage&&mpage=top_5category">Top 5 best selling product category</a></li>
-				<li><a href="?page=manage&&mpage=supplierReport">Supplier Report</a></li>
-				<li><a href="?page=manage&&mpage=rev_statistics">Order statistics</a></li>
 			</ul>
 		</nav>
 		<div class="mn-content">
@@ -79,8 +77,11 @@ if (!isset($_SESSION["us_admin"])) {
 				if($mpage=='supplierReport'){
 					include_once('supplierReport.php');
 				}
+				if($mpage=='rev_statistics'){
+					include_once('rev_statistics.php');
+				}
 			}else{
-				include_once('manageUSer.php');
+				include_once('rev_statistics.php');
 			}
 			?>
 		</div>
