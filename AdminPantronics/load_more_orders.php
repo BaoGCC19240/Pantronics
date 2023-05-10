@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
             <td><?php echo $row["total"]; ?></td>
             <td><?php echo $user_row["username"]; ?></td>
             <td>
-                <form method="POST" action="">
+            <form method="POST" action="" id="update-form-<?php echo $row["id"]; ?>">
                     <select name="status" onchange="this.form.submit()">
                         <option value="Not Confirmed" <?php if($row["status"]=="Not Confirm"){echo "selected";} ?>>Not confirmed</option>
                         <option value="confirmed" <?php if($row["status"]=="confirmed"){echo "selected";} ?>>Confirmed</option>
