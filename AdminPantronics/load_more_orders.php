@@ -67,3 +67,41 @@ if ($result->num_rows > 0) {
 }
 
 ?>
+<script>
+    // Thêm sự kiện onchange cho các dropdown menu
+    const selectList = document.querySelectorAll("select[name='status']");
+    for (let i = 0; i < selectList.length; i++) {
+        const select = selectList[i];
+        select.addEventListener('change', function (event) {
+            // Ngăn chặn mặc định của form (tải lại trang)
+            event.preventDefault();
+
+            // Lấy giá trị status mới
+            const newStatus = event.target.value;
+
+            // Lấy id của đơn hàng tương ứng
+            const orderId = event.target.form.querySelector("input[name='order_id']").value;
+
+            // Tạo đối tượng XMLHttpRequest để gửi yêu cầu đến server
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'update_order_status.php');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+            // Xử lý phản hồi từ server sau khi gửi yêu cầu
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // Cập nhật trạng thái đơn hàng trên giao diện
+                    const statusColumn = event.target.closest('td');
+                    const statusCell = statusColumn.querySelector('.status-cell');
+                    statusCell.textContent = newStatus;
+                } else {
+                    // Hiển thị thông báo lỗi nếu có lỗi xảy ra
+                    alert('There was an error processing your request. Please try again later.');
+                }
+            };
+
+            // Gửi yêu cầu đến server với các thông tin cần thiết
+            xhr.send(`status=${encodeURIComponent(newStatus)}&order_id=${encodeURIComponent(orderId)}`);
+        });
+    }
+</script>
