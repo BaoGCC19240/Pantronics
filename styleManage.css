@@ -152,7 +152,12 @@ select{
 	margin-right: 20px;
 }
 .preview-image-container img{
+<<<<<<< HEAD
 	height: 300px;
+=======
+	height: 100%;
+	min-height:400px;
+>>>>>>> parent of dcec39d (a)
 	object-fit: cover;
 }
 @media (max-width: 850px) {
@@ -178,6 +183,10 @@ select{
 
 .thumb-images {
 	display: inline-block;
+<<<<<<< HEAD
+=======
+	min-width:300px;
+>>>>>>> parent of dcec39d (a)
 }
 
 .thumb-images li {
@@ -187,8 +196,14 @@ select{
 }
 .thumb-image {
 	width: 100px; /* adjust as necessary */
+<<<<<<< HEAD
   height: 100px; /* adjust as necessary */
   object-fit: cover; /* adjust as necessary */
+=======
+  	height: 100px; /* adjust as necessary */
+  	object-fit: cover; /* adjust as necessary */
+	margin-top: 10px;
+>>>>>>> parent of dcec39d (a)
 }
 
 .product-details h1 {
@@ -250,4 +265,17 @@ input[type=number] {
   }
   .lst-order a{
 	margin-left:unset;
+<<<<<<< HEAD
+<<<<<<<< HEAD:styleManage.css
   }
+========
+  }
+  .export{
+	position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+>>>>>>>> parent of dcec39d (a):AdminPantronics/styleManage.css
+=======
+  }
+>>>>>>> parent of dcec39d (a)
