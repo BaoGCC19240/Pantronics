@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
             <td><?php echo $user_row["username"]; ?></td>
             <td>
             <form method="POST" action="" id="update-form-<?php echo $row["id"]; ?>">
-                    <select name="status" onchange="this.form.submit()">
+                    <select name="status">
                         <option value="Not Confirmed" <?php if($row["status"]=="Not Confirm"){echo "selected";} ?>>Not confirmed</option>
                         <option value="confirmed" <?php if($row["status"]=="confirmed"){echo "selected";} ?>>Confirmed</option>
                         <option value="shipping" <?php if($row["status"]=="shipping"){echo "selected";} ?>>Shipping</option>
@@ -65,19 +65,5 @@ if ($result->num_rows > 0) {
 } else {
     echo "<tr><td colspan='7'>No orders yet</td></tr>";
 }
-if(isset($_POST['status']) && isset($_POST['order_id'])) {
-    $new_status = $_POST['status'];
-    $order_id = $_POST['order_id'];
-    // Thực hiện cập nhật trạng thái mới trong cơ sở dữ liệu
-    $update_sql = "UPDATE Invoice SET status = '$new_status' WHERE id = $order_id";
-    if($conn->query($update_sql)) {
-        // Nếu cập nhật thành công, chuyển hướng trở lại trang danh sách order
-        echo '<script>swal.fire("Success", "Order status updated successfully!", "success").then(function() {window.location.href="?mpage=manageOrder";});</script>';
-    } else {
-        echo '<script>';
-        echo 'swal.fire("Oops...", "There was an error processing your request. Please try again later.", "error");                ';
-        echo '</script>';
-        
-    }
-}
+
 ?>
