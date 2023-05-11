@@ -70,7 +70,7 @@
         $where = $filter_date ? " WHERE order_date = '{$filter_date}'" : '';
 
         // Câu truy vấn cơ sở dữ liệu
-        $sql = "SELECT * FROM invoice {$where} ORDER BY id DESC LIMIT 10";
+        $sql = "SELECT * FROM invoice {$where} ORDER BY id DESC";
 
         // Thực hiện truy vấn
         $result = $conn->query($sql);
@@ -190,41 +190,4 @@
         var url = '?page=manage&&mpage=manageOrder&&filter_date=' + encodeURIComponent(value);
         window.location.href = url;
     }
-</script>
-<script>
-    // Load the next set of rows when the user scrolls to the bottom of the page
-    window.addEventListener('scroll', function () {
-        // Check if the user has scrolled to the bottom of the page
-        if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-            // Make an AJAX request to load the next set of rows
-            const xhr = new XMLHttpRequest();
-
-            const currentPage = document.querySelectorAll('#order-table-body tr').length;
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('filter_date') == null) {
-                xhr.open('GET', `load_more_orders.php?countPage=${currentPage}`);
-            }
-            else {
-                const filterDate = urlParams.get('filter_date');
-                xhr.open('GET', `load_more_orders.php?filter_date=${filterDate}&countPage=${currentPage}`);
-            }
-            // Update the table with the new rows
-            xhr.onload = function () {
-                const newRows = xhr.responseText;
-
-                if (newRows) {
-                    const orderTableBody = document.getElementById('order-table-body');
-                    orderTableBody.innerHTML += newRows;
-
-                    // Check if there are no more results
-                    if (newRows.length === 0) {
-                        orderTableBody.innerHTML = '<tr><td colspan="5">No orders yet</td></tr>';
-                        window.removeEventListener('scroll', scrollListener); // Remove the scroll listener
-                    }
-                }
-            };
-
-            xhr.send();
-        }
-    });
 </script>
