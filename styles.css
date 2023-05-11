@@ -559,7 +559,6 @@ footer {
 }
 
 .btn {
-  width: 120px;
   display: inline-block;
   padding: 10px;
   background: linear-gradient(45deg,rgb(92 193 235),rgb(73 207 224));
