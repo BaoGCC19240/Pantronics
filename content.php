@@ -32,11 +32,12 @@ document.querySelectorAll('.filter-btn').forEach(button => {
         productsList.innerHTML = '';
         const products = JSON.parse(xhr.responseText);
         products.forEach(product => {
+          var price = parseInt(product.price);
             productsList.innerHTML += `
   <li>
     <img src="${product.image}" alt="Product has no image">
     <h3>${product.name}</h3>
-    <p>${product.price.toLocaleString('en-US', { style: 'currency', currency: '$' })}</p>
+    <p>${price}</p>
     ${product.qty > 0 ? `
       <a href="#" class="btn btn-secondary" onclick="addToCart(event, '${product.id}')">Add to Cart</a>
       <a href="?page=product_detail&&id=${product.id}" class="btn btn-primary btn-details">View Details</a>
@@ -75,7 +76,7 @@ document.querySelectorAll('.filter-btn').forEach(button => {
             ?>
             <li><img src="<?php echo $imageUrl; ?>" alt="Product has no image">
                 <h3><?php echo $row['name'] ;?></h3>
-                <p><?php echo intval($row['price']); ?> $</p>
+                <p><?php echo intval($row['price']); ?> USD</p>
                 <?php
                 if($row['quantity']>0){
                     ?>
