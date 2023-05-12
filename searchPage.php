@@ -92,7 +92,7 @@
                     <?php echo $row['name']; ?>
                 </h3>
                 <p>
-                    <?php echo $row['price']; ?>
+                    <?php echo intval($row['price']); ?> USD
                 </p>
                 <?php
                 if($row['quantity']>0){
