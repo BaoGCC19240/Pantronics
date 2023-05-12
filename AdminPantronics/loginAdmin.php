@@ -19,14 +19,26 @@
                 $encrypted_password = $row['password'];
                 if (password_verify($pa, $encrypted_password)) {
                     // mật khẩu hợp lệ
-                    session_start();
-                    $_SESSION["us_admin"]=stripslashes($us);
-                    $_SESSION["us_id_admin"]=$row['id'];
-                    echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
+                    if($row['username']=='Admin'){
+                        session_start();
+                        $_SESSION["us_admin"]=stripslashes($us);
+                        $_SESSION["us_id_admin"]=$row['id'];
+                        echo '<meta http-equiv="refresh" content="0;URL=index.php"/>';
+                    }
+                    else
+                    {
+                        echo '<script>Swal.fire({
+                            icon: "Error",
+                            title: "Some error",
+                            text: "Please try again.",
+                            showConfirmButton: true,
+                        });</script>';
+                    }
+                    
                 } else {
                     // mật khẩu không hợp lệ
                     echo '<script>Swal.fire({
-                        icon: "error",
+                        icon: "Error",
                         title: "Invalid Password",
                         text: "Please try again.",
                         showConfirmButton: true,
@@ -35,7 +47,7 @@
             } else {
                 // mật khẩu không hợp lệ
                 echo '<script>Swal.fire({
-                    icon: "error",
+                    icon: "Error",
                     title: "Invalid Username or Password",
                     text: "Please try again.",
                     showConfirmButton: true,
