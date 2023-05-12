@@ -35,11 +35,12 @@
                     notFound.style.display = 'block';
                 } else {
                     products.forEach(function (product) {
+                        var price =  parseInt(product.price);
                         let li = document.createElement('li');
                         li.innerHTML = `
                         <img src="${product.image}" alt="Product has no image">
                         <h3>${product.name}</h3>
-                        <p>${product.price}</p>
+                        <p>${price} USD</p>
                         ${product.quantity > 0 ?
                             `<a href="#" class="btn btn-secondary" onclick="addToCart(event, '${product.id}')">Add to Cart</a>
                             <a href="?page=product_detail&&id=${product.id}" class="btn btn-primary btn-details">View Details</a>` :
