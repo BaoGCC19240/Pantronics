@@ -39,7 +39,7 @@ $row = mysqli_fetch_assoc($result);
 <img src="<?php echo $ima['image_url']; ?>" class="hidden" alt="Product has no image">
 <h1><?php echo $row['name']; ?></h1>
 <p><?php echo $row['description']; ?></p>
-<p id="price"><?php echo $row['price']; ?></p>
+<p id="price">Price: <?php echo intval($row['price']); ?> USD</p>
 <input type="number" id="quantity" name="quantity" min="1" max="<?php echo $row['quantity']?>"value="1">
 <button onclick="addToCart(event, <?php echo $row['id']; ?>)">Add to Cart</button>
 <button id="buy-now" onclick="redirectToBuyNow()">Buy Now</button>
