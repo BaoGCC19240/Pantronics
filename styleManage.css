@@ -64,6 +64,7 @@ table{
   width: 98%;
   justify-content: center;
   margin-left: 1%;
+  margin-top: 20px;
 }
 .mn-content {
   position:relative;
@@ -73,8 +74,11 @@ width: 85%;
 color: black;
 }
 .mn-content a{
-  margin-left: 5%;
+  margin-left: 1%;
   text-decoration: none;
+  padding: 10px 15px;
+    background-color: skyblue;
+    border-radius: 3px;
 }
 h1{
   text-align: center;
