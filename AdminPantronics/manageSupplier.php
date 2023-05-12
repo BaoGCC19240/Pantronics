@@ -32,8 +32,8 @@
 			<th>Supplier Name</th>
 			<th>Address</th>
             <th>Phone</th>
-			<th></th>
-			<th></th>
+			<th>Action</th>
+
 		</tr>
 		<?php
 // Thực hiện kết nối tới cơ sở dữ liệu

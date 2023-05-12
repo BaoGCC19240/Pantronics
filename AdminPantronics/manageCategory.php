@@ -31,8 +31,8 @@
 			<th>ID</th>
 			<th>Category Name</th>
 			<th>Description</th>
-			<th></th>
-			<th></th>
+			<th>Action</th>
+
 		</tr>
 		<?php
 			// Thực hiện kết nối tới cơ sở dữ liệu
