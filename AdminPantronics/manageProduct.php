@@ -30,7 +30,7 @@
       <th>Quantity</th>
       <th>Category ID</th>
       <th>Supplier ID</th>
-      <th>Action</th>
+      <th colspan="2">Action</th>
     </tr>
   </thead>
   <tbody>

@@ -31,7 +31,7 @@
 			<th>ID</th>
 			<th>Category Name</th>
 			<th>Description</th>
-			<th>Action</th>
+			<th colspan="2">Action</th>
 
 		</tr>
 		<?php

@@ -32,7 +32,7 @@
 			<th>Supplier Name</th>
 			<th>Address</th>
             <th>Phone</th>
-			<th>Action</th>
+			<th colspan="2">Action</th>
 
 		</tr>
 		<?php
