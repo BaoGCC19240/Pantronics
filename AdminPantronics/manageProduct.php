@@ -30,7 +30,6 @@
       <th>Quantity</th>
       <th>Category ID</th>
       <th>Supplier ID</th>
-      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -56,7 +55,8 @@ if ($result->num_rows > 0) {
           <td><?php echo htmlspecialchars($row["supplier_id"]); ?></td>
           <td>
               <a href="?mpage=updateProduct&amp;id=<?php echo htmlspecialchars($row["id"]); ?>">Update</a>
-              |
+    </td>
+    <td>
               <a href="?mpage=manageProduct&amp;function=del&amp;id=<?php echo htmlspecialchars($row["id"]); ?>" onclick="event.preventDefault(); deleteConfirm(this)">Delete</a>
           </td>
       </tr>
