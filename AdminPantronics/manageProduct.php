@@ -30,6 +30,7 @@
       <th>Quantity</th>
       <th>Category ID</th>
       <th>Supplier ID</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
