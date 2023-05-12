@@ -72,8 +72,7 @@ function drawChart() {
 
   var options = {
     title: 'Product Quantity by Supplier',
-    width: 800,
-    height: 400,
+
   };
 
   var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
