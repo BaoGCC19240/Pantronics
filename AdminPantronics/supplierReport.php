@@ -44,7 +44,7 @@
 			background-color: #add8e65e;
 		}
 		</style>
-    <div id="chart_div" style="width:90%;"></div>
+    <div id="chart_div"></div>
     <script>
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
@@ -72,7 +72,8 @@ function drawChart() {
 
   var options = {
     title: 'Product Quantity by Supplier',
-
+    width: 800,
+    height: 400
   };
 
   var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
