@@ -13,7 +13,7 @@ function renderCart() {
   if (cart.length === 0) {
     cartItems.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
     totalPrice = cart.reduce((acc, cartItem) => acc + (cartItem.price * 0), 0);
-    totalAmount.textContent = totalPrice.toFixed(2);
+    totalAmount.textContent = totalPrice.toFixed(0);
     return;
   }
   for (let i = 0; i < cart.length; i++) {
