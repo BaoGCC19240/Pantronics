@@ -40,7 +40,7 @@
                         li.innerHTML = `
                         <img src="${product.image}" alt="Product has no image">
                         <h3>${product.name}</h3>
-                        <p>${price} USD</p>
+                        <p>${price}<span> USD</span></p>
                         ${product.quantity > 0 ?
                             `<a href="#" class="btn btn-secondary" onclick="addToCart(event, '${product.id}')">Add to Cart</a>
                             <a href="?page=product_detail&&id=${product.id}" class="btn btn-primary btn-details">View Details</a>` :
@@ -92,7 +92,7 @@
                     <?php echo $row['name']; ?>
                 </h3>
                 <p>
-                    <?php echo intval($row['price']); ?> USD
+                    <?php echo intval($row['price']); ?> <span> USD</span>
                 </p>
                 <?php
                 if($row['quantity']>0){

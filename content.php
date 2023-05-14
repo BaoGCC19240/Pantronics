@@ -37,7 +37,7 @@ document.querySelectorAll('.filter-btn').forEach(button => {
   <li>
     <img src="${product.image}" alt="Product has no image">
     <h3>${product.name}</h3>
-    <p>${price}</p>USD
+    <p>${price}<span>USD</span></p>
     ${product.qty > 0 ? `
       <a href="#" class="btn btn-secondary" onclick="addToCart(event, '${product.id}')">Add to Cart</a>
       <a href="?page=product_detail&&id=${product.id}" class="btn btn-primary btn-details">View Details</a>
@@ -76,7 +76,7 @@ document.querySelectorAll('.filter-btn').forEach(button => {
             ?>
             <li><img src="<?php echo $imageUrl; ?>" alt="Product has no image">
                 <h3><?php echo $row['name'] ;?></h3>
-                <p><?php echo intval($row['price']); ?> USD</p>
+                <p><?php echo intval($row['price']); ?><span> USD</span></p>
                 <?php
                 if($row['quantity']>0){
                     ?>
