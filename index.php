@@ -7,7 +7,8 @@ include_once("connection.php");
 
 <head>
   <meta charset="utf-8" />
-  <title>My Shop</title>
+  <title>Pantronics</title>
+  <link rel="icon" href="Images/Untitled.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css">
