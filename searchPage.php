@@ -115,7 +115,7 @@
             event.preventDefault();
             let product = {
                 name: event.target.parentNode.querySelector('h3').textContent,
-                price: event.target.parentNode.querySelector('p').textContent,
+                price: event.target.parentNode.querySelector('p').textContent.replace(" USD", ""),
                 image: event.target.parentNode.querySelector('img').getAttribute('src'),
                 quantity: 1,
                 id: id
